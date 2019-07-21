@@ -1,4 +1,4 @@
-# KotlinLearning
+# Kotlin Learning
 
 This project has been created just to practice a little bit of Kotlin and it's libraries. 
 
@@ -8,7 +8,9 @@ But, the point in this project is, instead of using all the libraries I am used 
 
 Below we have a mapper of the libraries I am used to using versus the ones that I will apply in this project.
 
-* RxJava -> Kotlin coroutines
+* Java -> Kotlin
+* Android Support Library -> AndroidX
+* RxJava -> Kotlin Coroutines
 * Dagger 2 -> Koin
 * TODO the others.
 
