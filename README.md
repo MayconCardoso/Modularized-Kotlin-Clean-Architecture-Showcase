@@ -8,11 +8,11 @@ But, the point in this project is, instead of using all the libraries I am used 
 
 Below we have a mapper of the libraries I am used to using versus the ones that I will apply in this project.
 
-* Java -> Kotlin
-* Android Support Library -> AndroidX
-* RxJava -> Kotlin Coroutines
-* Dagger 2 -> Koin
-* TODO the others.
+> * Java -> Kotlin
+> * Android Support Library -> AndroidX
+> * RxJava -> Kotlin Coroutines
+> * Dagger 2 -> Koin
+> * TODO the others.
 
 Beside of that, I'll try using all the Android Architecture Components plus Android security rules all covered of unit tests.
 
