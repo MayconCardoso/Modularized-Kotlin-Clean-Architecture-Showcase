@@ -1,6 +1,6 @@
 ## Kotlin Learning
 
-This project has been created just to practice a little bit of Kotlin and it's libraries structured in a multi-module fashion, with semantics guided by Clean Architecure; this means that high level modules don't know anything about low-level ones. 
+This project has been created just to practice a little bit of Kotlin and it's libraries; It has been structured in a multi-module fashion, with semantics guided by Clean Architecture; this means that high-level modules don't know anything about low-level ones. 
 
 I gotta say that almost all developers have their favorite libraries to handle many different things. For example, many developers, including me, would rather Dagger to inject their dependencies. 
 
