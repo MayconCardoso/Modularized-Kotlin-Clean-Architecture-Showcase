@@ -1,0 +1,47 @@
+buildscript {
+    ext.kotlin_version = '1.3.40'
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+//
+//subprojects {
+//    afterEvaluate { project ->
+//        if (project.hasProperty('android')) {
+//
+//            android {
+//                buildToolsVersion Config.buildTools
+//                compileSdkVersion Config.compileSdk
+//
+//                defaultConfig {
+//                    minSdkVersion Config.minSdk
+//                    targetSdkVersion Config.targetSdk
+//                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//                }
+//
+//                compileOptions {
+//                    sourceCompatibility Config.javaVersion
+//                    targetCompatibility Config.javaVersion
+//                }
+//            }
+//        }
+//    }
+//}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
