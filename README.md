@@ -2,9 +2,7 @@
 
 This project has been created just to practice a little bit of Kotlin and it's libraries; It has been structured in a multi-module fashion, with semantics guided by Clean Architecture; this means that high-level modules don't know anything about low-level ones. 
 
-I gotta say that almost all developers have their favorite libraries to handle many different things. For example, many developers, including me, would rather Dagger to inject their dependencies. 
-
-But, the point in this project is, instead of using all the libraries I am used to, I am going to use a different library to improve my skills. So in the Dagger case, I am going to use Koin instead and so on.
+I gotta say that almost all developers have their favorite libraries to handle many different things. For example, many developers, including me, would use Dagger to inject their dependencies. But, the point in this project is: instead of using all the libraries that I am used to, I am going to use a different one to improve my skills. So in the Dagger case, I am going to use Koin instead and so on.
 
 Below we have a mapper of the libraries I am used to using versus the ones that I will apply in this project.
 
