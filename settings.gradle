@@ -1,3 +1,4 @@
 include ':app'
-include ':libraries:logger'
-include ':features:onboarding'
+include ':domain'
+include ':libraries:library-logger'
+include ':features:feature-onboarding'
