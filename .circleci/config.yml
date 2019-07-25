@@ -13,7 +13,7 @@ jobs:
 
       - run:
           name: Store Google Service File
-          command: echo $GOOGLE_SERVICES > ${HOME}/google-services.json
+          command: echo $GOOGLE_SERVICES > app/google-services.json
 
       - run:
           name: Download Dependencies
