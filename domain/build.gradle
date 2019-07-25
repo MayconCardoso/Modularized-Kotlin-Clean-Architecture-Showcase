@@ -1,4 +1,5 @@
 apply plugin: 'kotlin'
 
 dependencies {
+    implementation globalDependencies.appCompact
 }
