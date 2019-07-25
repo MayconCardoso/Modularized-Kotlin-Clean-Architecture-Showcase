@@ -1,4 +1,10 @@
-## Kotlin Learning
+Android Kotlin Clean Architecture Learning Playground
+=
+
+[![CircleCI](https://circleci.com/gh/MayconCardoso/KotlinLearning/tree/master.svg?style=svg)](https://circleci.com/gh/MayconCardoso/KotlinLearning/tree/master)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.31-blue.svg)](http://kotlinlang.org/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
 
 This project has been created just to practice a little bit of Kotlin and it's libraries; It has been structured in a multi-module fashion, with semantics guided by Clean Architecture; this means that high-level modules don't know anything about low-level ones. 
 
