@@ -6,6 +6,8 @@ ext {
     KOTLIN_CORE_KTX     = '1.0.2'
     APP_COMPAT          = '1.0.2'
     CONSTRAINT_LAYOUT   = '1.1.3'
+    MATERIAL_DESIGN     = '1.0.0-rc01'
+    FIREBASE_CORE       = '16.0.4'
 
 
     //==============================================================================================
@@ -24,11 +26,17 @@ ext {
     // Compiles - Application
     //==============================================================================================
     globalDependencies = [
-            // View
+            // KOTLIN
             kotlinStdLib                    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION",
             kotlinCoreKTX                   : "androidx.core:core-ktx:$KOTLIN_CORE_KTX",
+
+            // VIEW
             appCompact                      : "androidx.appcompat:appcompat:$APP_COMPAT",
             constraintlayout                : "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT",
+            materialDesign                  : "com.google.android.material:material:$MATERIAL_DESIGN",
+
+            // FIREBASE
+            firebaseCore                    : "com.google.firebase:firebase-core:$FIREBASE_CORE",
 
     ]
     //==============================================================================================

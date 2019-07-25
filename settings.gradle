@@ -1,4 +1,9 @@
 include ':app'
 include ':domain'
+
 include ':libraries:library-logger'
+include ':libraries:library-analytics'
+include ':libraries:library-app-theme'
+
 include ':features:feature-onboarding'
+include ':features:feature-login'
