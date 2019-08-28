@@ -1,14 +1,13 @@
-package mctech.libraries.logger
+package com.mctech.kotlinlearning.platform.logger
 
 import android.util.Log
+import mctech.libraries.logger.Logger
 
 /**
  * @author MAYCON CARDOSO on 2019-07-22.
  */
-class LogcatLogger : Logger {
-    companion object {
-        const val TAG = "com.mctech.logger"
-    }
+internal object  LogcatLogger : Logger {
+    const val TAG = "com.mctech.logger"
 
     override fun v(message: String) {
         Log.v(TAG, message)

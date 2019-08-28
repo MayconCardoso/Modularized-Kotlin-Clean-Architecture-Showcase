@@ -2,4 +2,5 @@ apply plugin: 'kotlin'
 
 dependencies {
     implementation globalDependencies.kotlinStdLib
+    implementation globalDependencies.kotlinCoroutinesCore
 }

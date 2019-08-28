@@ -19,15 +19,19 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':libraries:library-app-theme')
-    implementation project(path: ':libraries:library-analytics')
+    implementation project(path: submodulesLibraries.analytics)
+    implementation project(path: submodulesLibraries.appTheme)
+    implementation project(path: submodulesLibraries.logger)
+
+    implementation project(path: submodulesFeatures.login)
+    implementation project(path: submodulesFeatures.onBoarding)
+
 
     implementation globalDependencies.kotlinStdLib
     implementation globalDependencies.kotlinCoreKTX
 
     implementation globalDependencies.appCompact
     implementation globalDependencies.constraintlayout
-
 
     testImplementation globalTestDependencies.jUnit
     androidTestImplementation globalTestDependencies.testRunner
