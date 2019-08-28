@@ -25,7 +25,7 @@ Again, it's just a playground project to study.
 License
 -
 
-    Copyright 2018 Mario Sanoguera de Lorenzo
+    Copyright 2019 Maycon dos Santos Cardoso
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
