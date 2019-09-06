@@ -2,7 +2,7 @@ Android Kotlin Clean Architecture Learning Playground
 =
 
 [![CircleCI](https://circleci.com/gh/MayconCardoso/KotlinLearning/tree/master.svg?style=svg)](https://circleci.com/gh/MayconCardoso/KotlinLearning/tree/master)
-[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.31-blue.svg)](http://kotlinlang.org/)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.50-blue.svg)](http://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 
