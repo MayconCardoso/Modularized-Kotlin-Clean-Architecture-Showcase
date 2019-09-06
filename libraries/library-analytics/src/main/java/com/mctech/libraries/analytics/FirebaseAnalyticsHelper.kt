@@ -29,7 +29,9 @@ class FirebaseAnalyticsHelper(
     override fun sendScreenView(screenName: String, activity: Activity) {
         val params = Bundle().apply {
             putString(FirebaseAnalytics.Param.ITEM_ID, screenName)
-            putString(FirebaseAnalytics.Param.CONTENT_TYPE, CONTENT_TYPE_SCREEN_VIEW)
+            putString(FirebaseAnalytics.Param.CONTENT_TYPE,
+                CONTENT_TYPE_SCREEN_VIEW
+            )
         }
         firebaseAnalytics.run {
             setCurrentScreen(activity, screenName, null)
@@ -40,7 +42,9 @@ class FirebaseAnalyticsHelper(
     override fun logUiEvent(itemId: String, action: String) {
         val params = Bundle().apply {
             putString(FirebaseAnalytics.Param.ITEM_ID, itemId)
-            putString(FirebaseAnalytics.Param.CONTENT_TYPE, CONTENT_TYPE_UI_EVENT)
+            putString(FirebaseAnalytics.Param.CONTENT_TYPE,
+                CONTENT_TYPE_UI_EVENT
+            )
             putString(KEY_UI_ACTION, action)
         }
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, params)

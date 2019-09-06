@@ -1,5 +1,13 @@
 apply plugin: 'com.android.library'
 
 dependencies {
+    implementation project(path: submodulesPlatform.domain)
+
+    implementation globalDependencies.lifeCycleLiveExtentions
+    implementation globalDependencies.lifeCycleLiveData
+    implementation globalDependencies.lifeCycleViewModel
+
     implementation globalDependencies.appCompact
+    implementation globalDependencies.constraintlayout
+    implementation globalDependencies.materialDesign
 }

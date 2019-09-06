@@ -1,4 +1,4 @@
-package com.mctech.domain.auth.model
+package com.mctech.domain.model
 
 /**
  * @author MAYCON CARDOSO on 2019-07-25.
@@ -6,11 +6,10 @@ package com.mctech.domain.auth.model
 data class AuthRequest(
     val type : AuthRequestType,
     val login : String,
-    var password : String? = null
+    var password : String
 )
 
 enum class AuthRequestType{
-    EMAIL,
-    GMAIL
+    EMAIL
 }
 

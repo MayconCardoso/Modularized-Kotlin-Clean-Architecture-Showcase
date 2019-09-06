@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+    implementation project(path: submodulesPlatform.domain)
+
+    implementation globalDependencies.kotlinStdLib
+    implementation globalDependencies.kotlinCoroutinesCore
+    implementation globalDependencies.kotlinCoroutinesAndroid
+    implementation globalDependencies.kotlinCoroutinesPlayService
+
+    implementation globalDependencies.koin
+
+    implementation globalDependencies.firebaseAuth
+}

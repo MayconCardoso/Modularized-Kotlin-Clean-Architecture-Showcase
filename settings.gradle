@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':data'
 include ':domain'
 
 include ':libraries:library-logger'
