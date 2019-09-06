@@ -6,6 +6,10 @@ android {
 
 dependencies {
     implementation project(path: submodulesPlatform.domain)
+    implementation project(path: submodulesLibraries.sharedFeatureArq)
+
+    implementation globalDependencies.koin
+    implementation globalDependencies.koinViewModel
 
     implementation globalDependencies.lifeCycleLiveExtentions
     implementation globalDependencies.lifeCycleLiveData

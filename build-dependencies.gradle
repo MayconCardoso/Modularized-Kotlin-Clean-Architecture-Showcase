@@ -42,6 +42,7 @@ ext {
             analytics                       : ':libraries:library-analytics',
             appTheme                        : ':libraries:library-app-theme',
             logger                          : ':libraries:library-logger',
+            sharedFeatureArq                : ':libraries:library-shared-feature-arq',
     ]
 
     submodulesFeatures = [

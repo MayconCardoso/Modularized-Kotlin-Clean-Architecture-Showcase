@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+
+android {
+    dataBinding { enabled = true }
+}
+
+dependencies {
+    implementation globalDependencies.appCompact
+}

@@ -2,18 +2,18 @@ package com.mctech.domain.interaction.auth
 
 import com.mctech.domain.errors.AuthException
 import com.mctech.domain.interaction.Result
-import com.mctech.domain.model.User
+import com.mctech.domain.model.RegisterUser
 import com.mctech.domain.model.checkEmail
 import com.mctech.domain.model.checkPhoneNumber
 import com.mctech.domain.services.AuthService
 
 class RegisterUserUseCase(val authService: AuthService) {
-    suspend fun execute(user: User): Result {
+    suspend fun execute(registerUser: RegisterUser): Result {
         try{
-            user.checkEmail()
-            user.checkPhoneNumber()
+            registerUser.user.checkEmail()
+            registerUser.user.checkPhoneNumber()
 
-            if(authService.registerUser(user)){
+            if(authService.registerUser(registerUser)){
                 return Result.Success(authService.fetchLoggedUser()!!)
             }
         }
