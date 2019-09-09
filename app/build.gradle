@@ -9,6 +9,8 @@ android {
         applicationId "com.mctech.kotlinlearning"
         versionCode 1
         versionName "1.0"
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -28,6 +30,8 @@ dependencies {
     implementation project(path: submodulesFeatures.login)
     implementation project(path: submodulesFeatures.onBoarding)
 
+
+    implementation globalDependencies.multidex
 
     implementation globalDependencies.kotlinStdLib
     implementation globalDependencies.kotlinCoreKTX

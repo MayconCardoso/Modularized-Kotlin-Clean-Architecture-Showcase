@@ -1,15 +1,14 @@
 package com.mctech.kotlinlearning
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import com.mctech.data.di.dataModule
 import com.mctech.kotlinlearning.di.modules.analyticsModule
 import com.mctech.kotlinlearning.di.modules.loggingModule
 import org.koin.android.ext.android.startKoin
 
-class App : Application(){
+class App : MultiDexApplication(){
     override fun onCreate() {
         super.onCreate()
-
         initDependencyInjection()
     }
 

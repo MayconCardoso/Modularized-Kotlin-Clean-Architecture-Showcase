@@ -2,6 +2,8 @@ ext {
     //==============================================================================================
     // Versions - Application
     //==============================================================================================
+    MULTIDEX                        = '1.0.3'
+
     KOTLIN_VERSION                  = '1.3.41'
     KOTLIN_CORE_KTX                 = '1.0.2'
     KOTLIN_COROUTINES_CORE          = '1.3.0-RC2'
@@ -14,7 +16,7 @@ ext {
     FIREBASE_CORE                   = '16.0.4'
     FIREBASE_AUTH                   = '18.1.0'
 
-    AC_LIFECYCLE                    = '2.2.0-alpha03'
+    AC_LIFECYCLE                    = '2.1.0-beta01'
 
     KOIN                            = '1.0.2'
 
@@ -58,6 +60,8 @@ ext {
     // Compiles - Application
     //==============================================================================================
     globalDependencies = [
+            multidex                        : "com.android.support:multidex:$MULTIDEX",
+
             // KOTLIN
             kotlinStdLib                    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION",
             kotlinCoreKTX                   : "androidx.core:core-ktx:$KOTLIN_CORE_KTX",
@@ -76,7 +80,6 @@ ext {
 
             // ANDROID ARQ
             lifeCycleLiveExtentions         : "androidx.lifecycle:lifecycle-extensions:$AC_LIFECYCLE",
-            lifeCycleLiveData               : "androidx.lifecycle:lifecycle-livedata:$AC_LIFECYCLE",
             lifeCycleViewModel              : "androidx.lifecycle:lifecycle-viewmodel:$AC_LIFECYCLE",
 
             // Koin

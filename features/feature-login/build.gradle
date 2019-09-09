@@ -1,9 +1,5 @@
 apply plugin: 'com.android.library'
 
-android {
-    dataBinding { enabled = true }
-}
-
 dependencies {
     implementation project(path: submodulesPlatform.domain)
     implementation project(path: submodulesLibraries.sharedFeatureArq)
@@ -11,8 +7,10 @@ dependencies {
     implementation globalDependencies.koin
     implementation globalDependencies.koinViewModel
 
+    implementation globalDependencies.kotlinCoroutinesCore
+    implementation globalDependencies.kotlinCoroutinesAndroid
+
     implementation globalDependencies.lifeCycleLiveExtentions
-    implementation globalDependencies.lifeCycleLiveData
     implementation globalDependencies.lifeCycleViewModel
 
     implementation globalDependencies.appCompact

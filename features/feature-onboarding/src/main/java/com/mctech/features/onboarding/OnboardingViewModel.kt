@@ -1,4 +1,4 @@
-package mctech.features.onboarding
+package com.mctech.features.onboarding
 
 import com.mctech.domain.interaction.auth.CheckAuthSessionUseCase
 import com.mctech.feature.arq.BaseViewModel
@@ -11,8 +11,8 @@ class OnboardingViewModel(
 ) : BaseViewModel(){
 
     fun startApplication(){
-        viewModelScope.launch {
-
-        }
+//        viewModelScope.launch {
+//            // Coroutine that will be canceled when the ViewModel is cleared.
+//        }
     }
 }

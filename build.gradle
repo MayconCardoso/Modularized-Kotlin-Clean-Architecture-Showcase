@@ -39,6 +39,8 @@ subprojects {
                     sourceCompatibility javaVersion
                     targetCompatibility javaVersion
                 }
+
+                dataBinding { enabled = true }
             }
         }
     }
