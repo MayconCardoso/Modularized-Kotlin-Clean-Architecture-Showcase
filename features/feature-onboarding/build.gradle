@@ -12,6 +12,7 @@ dependencies {
     implementation globalDependencies.kotlinCoroutinesCore
     implementation globalDependencies.kotlinCoroutinesAndroid
 
+    implementation globalDependencies.lifeCycleLiveRuntime
     implementation globalDependencies.lifeCycleLiveExtentions
     implementation globalDependencies.lifeCycleViewModel
 

@@ -21,6 +21,7 @@ android {
 }
 
 dependencies {
+    implementation project(path: submodulesPlatform.domain)
     implementation project(path: submodulesPlatform.data)
 
     implementation project(path: submodulesLibraries.analytics)

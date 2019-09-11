@@ -7,7 +7,7 @@ import com.mctech.domain.model.checkEmail
 import com.mctech.domain.model.checkPhoneNumber
 import com.mctech.domain.services.AuthService
 
-class RegisterUserUseCase(val authService: AuthService) {
+class RegisterUserUseCase(private val authService: AuthService) {
     suspend fun execute(registerUser: RegisterUser): Result {
         try{
             registerUser.user.checkEmail()

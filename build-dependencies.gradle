@@ -16,7 +16,7 @@ ext {
     FIREBASE_CORE                   = '16.0.4'
     FIREBASE_AUTH                   = '18.1.0'
 
-    AC_LIFECYCLE                    = '2.1.0-beta01'
+    AC_LIFECYCLE                    = '2.2.0-alpha01'
 
     KOIN                            = '2.0.1'
 
@@ -79,12 +79,13 @@ ext {
             firebaseAuth                    : "com.google.firebase:firebase-auth:$FIREBASE_AUTH",
 
             // ANDROID ARQ
+            lifeCycleLiveRuntime            : "androidx.lifecycle:lifecycle-runtime-ktx:$AC_LIFECYCLE",
             lifeCycleLiveExtentions         : "androidx.lifecycle:lifecycle-extensions:$AC_LIFECYCLE",
             lifeCycleViewModel              : "androidx.lifecycle:lifecycle-viewmodel:$AC_LIFECYCLE",
 
             // Koin
             koin                            : "org.koin:koin-android:$KOIN",
-            koinViewModel                   : "org.koin:koin-android-viewmodel:$KOIN",
+            koinViewModel                   : "org.koin:koin-androidx-viewmodel:$KOIN",
     ]
     //==============================================================================================
     //
