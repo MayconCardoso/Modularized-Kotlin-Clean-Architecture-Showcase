@@ -4,7 +4,9 @@ import androidx.multidex.MultiDexApplication
 import com.mctech.data.di.dataModule
 import com.mctech.kotlinlearning.di.modules.analyticsModule
 import com.mctech.kotlinlearning.di.modules.loggingModule
-import org.koin.android.ext.android.startKoin
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 
 class App : MultiDexApplication(){
     override fun onCreate() {
@@ -13,13 +15,17 @@ class App : MultiDexApplication(){
     }
 
     private fun initDependencyInjection() {
-        startKoin(
-            androidContext = this,
-            modules = listOf(
+        startKoin{
+            androidLogger()
+            androidContext(this@App)
+            modules(listOf(
+                // Plataform
+                dataModule,
+
+                // Libraries
                 loggingModule,
-                analyticsModule,
-                dataModule
-            )
-        )
+                analyticsModule
+            ))
+        }
     }
 }

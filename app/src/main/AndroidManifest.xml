@@ -14,14 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/KotlinLearningTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-
-           <activity android:name="com.mctech.features.onboarding.OnboardingActivity">
-               <intent-filter>
-                   <action android:name="android.intent.action.MAIN" />
-                   <category android:name="android.intent.category.LAUNCHER" />
-               </intent-filter>
-           </activity>
-    </application>
+        tools:ignore="GoogleAppIndexingWarning"/>
 
 </manifest>
