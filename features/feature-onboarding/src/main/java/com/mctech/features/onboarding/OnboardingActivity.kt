@@ -2,7 +2,7 @@ package com.mctech.features.onboarding
 
 import android.os.Bundle
 import com.mctech.feature.arq.BaseActivity
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * @author MAYCON CARDOSO on 2019-07-23.
