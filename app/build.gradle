@@ -28,6 +28,7 @@ dependencies {
     implementation project(path: submodulesLibraries.appTheme)
     implementation project(path: submodulesLibraries.logger)
 
+    implementation project(path: submodulesFeatures.navigation)
     implementation project(path: submodulesFeatures.login)
     implementation project(path: submodulesFeatures.onBoarding)
 

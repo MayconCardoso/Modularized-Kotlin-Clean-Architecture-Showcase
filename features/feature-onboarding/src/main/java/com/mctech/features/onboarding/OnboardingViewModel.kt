@@ -1,18 +1,25 @@
 package com.mctech.features.onboarding
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
 import com.mctech.domain.interaction.auth.CheckAuthSessionUseCase
 import com.mctech.feature.arq.BaseViewModel
+import com.mctech.feature.arq.ComponentState
+import kotlinx.coroutines.delay
 
-/**
- * @author MAYCON CARDOSO on 2019-09-05.
- */
-class OnboardingViewModel(
-    val checkAuthSessionUseCase: CheckAuthSessionUseCase
-) : BaseViewModel(){
+class OnboardingViewModel(private val checkAuthSessionUseCase: CheckAuthSessionUseCase) :
+    BaseViewModel() {
 
-    fun startApplication(){
-//        viewModelScope.launch {
-//            // Coroutine that will be canceled when the ViewModel is cleared.
-//        }
+    val userFlowState: LiveData<ComponentState<OnBoardingNavigationState>> = liveData {
+        emit(ComponentState.Loading)
+        delay(1000)
+
+        val isUserLogged = checkAuthSessionUseCase.execute().result
+        emit(ComponentState.Success(
+            if(isUserLogged)
+                OnBoardingNavigationState.Dashboard
+            else
+                OnBoardingNavigationState.Login
+        ))
     }
 }

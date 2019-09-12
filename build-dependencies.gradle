@@ -50,6 +50,7 @@ ext {
     submodulesFeatures = [
             login                           : ':features:feature-login',
             onBoarding                      : ':features:feature-onboarding',
+            navigation                      : ':features:feature-navigation',
     ]
     //==============================================================================================
     //
@@ -81,11 +82,13 @@ ext {
             // ANDROID ARQ
             lifeCycleLiveRuntime            : "androidx.lifecycle:lifecycle-runtime-ktx:$AC_LIFECYCLE",
             lifeCycleLiveExtentions         : "androidx.lifecycle:lifecycle-extensions:$AC_LIFECYCLE",
-            lifeCycleViewModel              : "androidx.lifecycle:lifecycle-viewmodel:$AC_LIFECYCLE",
+            lifeCycleViewModel              : "androidx.lifecycle:lifecycle-viewmodel-ktx:$AC_LIFECYCLE",
+            lifeCycleLiveData               : "androidx.lifecycle:lifecycle-livedata-ktx:$AC_LIFECYCLE",
 
             // Koin
             koin                            : "org.koin:koin-android:$KOIN",
             koinViewModel                   : "org.koin:koin-androidx-viewmodel:$KOIN",
+            koinScope                       : "org.koin:koin-androidx-scope:$KOIN",
     ]
     //==============================================================================================
     //

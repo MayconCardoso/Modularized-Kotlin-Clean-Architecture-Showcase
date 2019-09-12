@@ -2,6 +2,9 @@ package com.mctech.features.onboarding
 
 import android.os.Bundle
 import com.mctech.feature.arq.BaseActivity
+import com.mctech.feature.arq.ComponentState
+import com.mctech.feature.arq.bindState
+import com.mctech.features.navigation.Screen
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -14,7 +17,16 @@ class OnboardingActivity : BaseActivity<OnboardingViewModel>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_on_boarding)
 
-        // Start the application.
-        viewModelAgent.startApplication()
+        bindState(viewModelAgent.userFlowState){
+            when(it){
+                is ComponentState.Success -> navigate(it.result)
+            }
+        }
+    }
+
+    private fun navigate(result: OnBoardingNavigationState) {
+        when(result){
+            is OnBoardingNavigationState.Login -> navigator.navigateTo(Screen.Login)
+        }
     }
 }

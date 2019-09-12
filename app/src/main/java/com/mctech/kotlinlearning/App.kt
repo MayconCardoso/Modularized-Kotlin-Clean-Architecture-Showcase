@@ -5,6 +5,7 @@ import com.mctech.data.di.dataModule
 import com.mctech.features.onboarding.di.onboardingModule
 import com.mctech.kotlinlearning.di.modules.analyticsModule
 import com.mctech.kotlinlearning.di.modules.loggingModule
+import com.mctech.kotlinlearning.di.modules.navigatorModule
 import com.mctech.kotlinlearning.di.modules.useCaseModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -30,6 +31,7 @@ class App : MultiDexApplication(){
                 analyticsModule,
 
                 // Features
+                navigatorModule,
                 onboardingModule
             ))
         }
