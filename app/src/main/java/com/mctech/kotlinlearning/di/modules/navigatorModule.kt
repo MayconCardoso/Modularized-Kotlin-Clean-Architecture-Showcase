@@ -6,9 +6,7 @@ import com.mctech.features.navigation.Navigator
 import com.mctech.features.navigation.Screen
 import org.koin.dsl.module
 
-/**
- * @author MAYCON CARDOSO on 2019-09-05.
- */
+
 val navigatorModule = module {
     single {
         mapOf<Screen, Class<out FragmentActivity>>(
@@ -16,5 +14,5 @@ val navigatorModule = module {
         )
     }
 
-    factory { Navigator(get(), get()) }
+    factory { (view: FragmentActivity) -> Navigator(view, get()) }
 }
