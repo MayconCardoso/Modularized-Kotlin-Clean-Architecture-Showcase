@@ -1,8 +1,5 @@
 package com.mctech.features.login
 
-import androidx.lifecycle.ViewModel
+import com.mctech.feature.arq.BaseViewModel
 
-class LoginViewModel() : ViewModel() {
-
-
-}
+class LoginViewModel() : BaseViewModel()

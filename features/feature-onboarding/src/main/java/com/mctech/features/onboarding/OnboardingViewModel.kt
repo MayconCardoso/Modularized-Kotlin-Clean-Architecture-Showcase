@@ -7,8 +7,7 @@ import com.mctech.feature.arq.BaseViewModel
 import com.mctech.feature.arq.ComponentState
 import kotlinx.coroutines.delay
 
-class OnboardingViewModel(private val checkAuthSessionUseCase: CheckAuthSessionUseCase) :
-    BaseViewModel() {
+class OnboardingViewModel(private val checkAuthSessionUseCase: CheckAuthSessionUseCase) : BaseViewModel() {
 
     val userFlowState: LiveData<ComponentState<OnBoardingNavigationState>> = liveData {
         emit(ComponentState.Loading)

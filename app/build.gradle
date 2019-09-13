@@ -4,7 +4,6 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 28
     defaultConfig {
         applicationId "com.mctech.kotlinlearning"
         versionCode 1
