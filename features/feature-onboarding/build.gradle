@@ -4,9 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 dependencies {
     implementation project(path: submodulesPlatform.domain)
-
     implementation project(path: submodulesFeatures.navigation)
-
     implementation project(path: submodulesLibraries.sharedFeatureArq)
     implementation project(path: submodulesLibraries.appTheme)
 

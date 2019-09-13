@@ -6,4 +6,9 @@ dependencies {
     implementation globalDependencies.appCompact
 
     implementation globalDependencies.koin
+
+    testImplementation globalTestDependencies.jUnit
+    testImplementation globalTestDependencies.assertJ
+    testImplementation globalTestDependencies.robolectric
+    testImplementation globalTestDependencies.mockitoKotlin
 }

@@ -10,7 +10,7 @@ import org.koin.dsl.module
 val navigatorModule = module {
     single {
         mapOf<Screen, Class<out FragmentActivity>>(
-            Pair(Screen.Login, LoginActivity::class.java)
+            Screen.Login to LoginActivity::class.java
         )
     }
 

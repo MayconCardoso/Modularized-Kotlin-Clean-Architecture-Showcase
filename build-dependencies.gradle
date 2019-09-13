@@ -26,6 +26,9 @@ ext {
     JUNIT               = '4.12'
     TEST_RUNNER         = '1.2.0'
     EXPRESSO_CORE       = '3.2.0'
+    ROBOLETRIC          = '4.3'
+    MOCKITO_KOTLIN      = '2.1.0'
+    ASSERTJ             = '3.11.1'
 
     //==============================================================================================
     //
@@ -100,7 +103,10 @@ ext {
     //==============================================================================================
     globalTestDependencies = [
             jUnit                           : "junit:junit:${JUNIT}",
+            mockitoKotlin                   : "com.nhaarman.mockitokotlin2:mockito-kotlin:${MOCKITO_KOTLIN}",
             testRunner                      : "androidx.test:runner:${TEST_RUNNER}",
-            espresso                        : "androidx.test.espresso:espresso-core:${EXPRESSO_CORE}"
+            espresso                        : "androidx.test.espresso:espresso-core:${EXPRESSO_CORE}",
+            robolectric                     : "org.robolectric:robolectric:${ROBOLETRIC}" ,
+            assertJ                         : "org.assertj:assertj-core:${ASSERTJ}"
     ]
 }
