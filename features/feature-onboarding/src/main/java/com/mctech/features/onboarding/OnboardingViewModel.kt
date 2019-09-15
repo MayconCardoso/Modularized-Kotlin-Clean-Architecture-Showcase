@@ -5,6 +5,7 @@ import androidx.lifecycle.liveData
 import com.mctech.domain.interaction.auth.CheckAuthSessionUseCase
 import com.mctech.feature.arq.BaseViewModel
 import com.mctech.feature.arq.ComponentState
+import com.mctech.features.onboarding.state.OnBoardingNavigationState
 import kotlinx.coroutines.delay
 
 class OnboardingViewModel(private val checkAuthSessionUseCase: CheckAuthSessionUseCase) : BaseViewModel() {

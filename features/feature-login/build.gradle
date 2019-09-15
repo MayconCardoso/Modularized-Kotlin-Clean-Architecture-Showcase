@@ -19,6 +19,9 @@ dependencies {
     implementation globalDependencies.lifeCycleViewModel
     implementation globalDependencies.lifeCycleLiveData
 
+    implementation globalDependencies.navigationFragment
+    implementation globalDependencies.navigationFragmentUi
+
     implementation globalDependencies.appCompact
     implementation globalDependencies.constraintlayout
     implementation globalDependencies.materialDesign

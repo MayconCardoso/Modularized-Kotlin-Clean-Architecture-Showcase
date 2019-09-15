@@ -2,6 +2,7 @@ package com.mctech.kotlinlearning
 
 import androidx.multidex.MultiDexApplication
 import com.mctech.data.di.dataModule
+import com.mctech.features.login.di.loginModule
 import com.mctech.features.onboarding.di.onboardingModule
 import com.mctech.kotlinlearning.di.modules.analyticsModule
 import com.mctech.kotlinlearning.di.modules.loggingModule
@@ -32,7 +33,8 @@ class App : MultiDexApplication(){
 
                 // Features
                 navigatorModule,
-                onboardingModule
+                onboardingModule,
+                loginModule
             ))
         }
     }

@@ -1,4 +1,4 @@
-package com.mctech.features.onboarding
+package com.mctech.features.onboarding.state
 
 sealed class OnBoardingNavigationState {
     object Login : OnBoardingNavigationState()

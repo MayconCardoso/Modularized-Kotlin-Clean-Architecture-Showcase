@@ -12,6 +12,7 @@ ext {
     APP_COMPAT                      = '1.0.2'
     CONSTRAINT_LAYOUT               = '1.1.3'
     MATERIAL_DESIGN                 = '1.0.0-rc01'
+    NAV_VERSION                     = "2.1.0"
 
     FIREBASE_CORE                   = '16.0.4'
     FIREBASE_AUTH                   = '18.1.0'
@@ -87,6 +88,8 @@ ext {
             lifeCycleLiveExtentions         : "androidx.lifecycle:lifecycle-extensions:$AC_LIFECYCLE",
             lifeCycleViewModel              : "androidx.lifecycle:lifecycle-viewmodel-ktx:$AC_LIFECYCLE",
             lifeCycleLiveData               : "androidx.lifecycle:lifecycle-livedata-ktx:$AC_LIFECYCLE",
+            navigationFragment              : "androidx.navigation:navigation-fragment-ktx:$NAV_VERSION",
+            navigationFragmentUi            : "androidx.navigation:navigation-ui-ktx:$NAV_VERSION",
 
             // Koin
             koin                            : "org.koin:koin-android:$KOIN",

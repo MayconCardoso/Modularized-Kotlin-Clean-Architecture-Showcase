@@ -1,14 +1,12 @@
 package com.mctech.features.login
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.mctech.feature.arq.BaseActivity
 
-class LoginActivity : AppCompatActivity() {
-
+class LoginActivity : BaseActivity<LoginViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_login)
     }
 }
