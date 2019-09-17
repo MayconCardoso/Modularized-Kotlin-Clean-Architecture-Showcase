@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/login_nav_graph">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/login_nav_graph"
+        app:startDestination="@id/loginFormFragment">
 
+    <fragment
+            android:id="@+id/loginFormFragment"
+            android:name="com.mctech.features.login.LoginSignInFragment"
+            android:label="fragment_login_form"
+            tools:layout="@layout/fragment_sign_in">
+        <action
+                android:id="@+id/action_loginFormFragment_to_loginSignUpFragment"
+                app:destination="@id/loginSignUpFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+            android:id="@+id/loginSignUpFragment"
+            android:name="com.mctech.features.login.LoginSignUpFragment"
+            android:label="LoginSignUpFragment" />
 </navigation>
