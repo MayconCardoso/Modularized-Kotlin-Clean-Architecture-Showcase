@@ -1,6 +1,8 @@
 <layout>
 
     <data>
+        <import type="com.mctech.features.login.state.LoginScreenState"/>
+        <import type="android.view.View"/>
 
         <variable
                 name="viewModel"
@@ -21,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_email"
+                android:enabled="@{viewModel.loginSreenState instanceof LoginScreenState.Loading ? false : true}"
                 android:inputType="textEmailAddress"
                 android:selectAllOnFocus="true" />
 
@@ -28,6 +31,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:enabled="@{viewModel.loginSreenState instanceof LoginScreenState.Loading ? false : true}"
                 android:layout_marginTop="8dp"
                 android:hint="@string/prompt_password"
                 android:imeActionLabel="@string/action_sign_in_short"
@@ -46,6 +50,7 @@
 
 
         <Button
+                android:id="@+id/btSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -58,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:visibility="visible" />
+                android:visibility="@{viewModel.loginSreenState instanceof LoginScreenState.Loading ? View.VISIBLE : View.GONE}"
+                tools:visibility="visible" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

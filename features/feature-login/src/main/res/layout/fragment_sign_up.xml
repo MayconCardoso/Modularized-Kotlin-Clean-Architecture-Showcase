@@ -1,7 +1,7 @@
 <layout>
 
     <data>
-
+        <import type="com.mctech.features.login.state.LoginScreenState"/>
         <variable
                 name="viewModel"
                 type="com.mctech.features.login.LoginViewModel" />
@@ -58,6 +58,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:visibility="visible" />
+                tools:visibility="visible" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
