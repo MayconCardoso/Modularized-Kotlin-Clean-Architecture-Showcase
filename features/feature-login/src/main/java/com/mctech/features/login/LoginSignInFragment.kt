@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.mctech.feature.arq.extentions.getValue
 import com.mctech.features.login.databinding.FragmentSignInBinding
 import kotlinx.android.synthetic.main.fragment_sign_in.view.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -20,13 +21,22 @@ class LoginSignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentSignInBinding.inflate(inflater, container, false)
-        val view = binding.getRoot()
+        return binding.root.apply {
+            createListeners(this)
+        }
+    }
 
-        view.btSignUp.setOnClickListener{
+    private fun createListeners(view: View) {
+        view.btSignUp.setOnClickListener {
             val navController = findNavController()
             navController.navigate(R.id.action_loginFormFragment_to_loginSignUpFragment)
         }
 
-        return view
+        view.btSignIn.setOnClickListener {
+            loginViewModel.doLogin(
+                view.username.getValue(),
+                view.password.getValue()
+            )
+        }
     }
 }

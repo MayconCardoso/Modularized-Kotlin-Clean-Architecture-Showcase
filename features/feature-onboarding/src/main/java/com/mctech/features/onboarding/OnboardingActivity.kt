@@ -3,7 +3,7 @@ package com.mctech.features.onboarding
 import android.os.Bundle
 import com.mctech.feature.arq.BaseActivity
 import com.mctech.feature.arq.ComponentState
-import com.mctech.feature.arq.bindState
+import com.mctech.feature.arq.extentions.bindState
 import com.mctech.features.navigation.Screen
 import com.mctech.features.onboarding.state.OnBoardingNavigationState
 import org.koin.androidx.viewmodel.ext.android.viewModel
