@@ -27,7 +27,14 @@ class OnboardingActivity : BaseActivity<OnboardingViewModel>() {
 
     private fun navigate(result: OnBoardingNavigationState) {
         when(result){
-            is OnBoardingNavigationState.Login -> navigator.navigateTo(Screen.Login)
+            is OnBoardingNavigationState.Unauthorized -> navigator.navigateTo(
+                destination = Screen.Login,
+                finishHost = true
+            )
+            is OnBoardingNavigationState.Authorized -> navigator.navigateTo(
+                destination = Screen.Dashboard,
+                finishHost = true
+            )
         }
     }
 }

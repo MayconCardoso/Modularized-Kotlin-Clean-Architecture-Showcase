@@ -2,27 +2,20 @@ package com.mctech.domain.interaction.auth
 
 import com.mctech.domain.errors.AuthException
 import com.mctech.domain.interaction.Result
-import com.mctech.domain.model.RegisterUser
+import com.mctech.domain.model.AuthRequest
 import com.mctech.domain.services.AuthService
 import com.mctech.domain.validation.EmailValidator
 import com.mctech.domain.validation.PasswordlValidator
-import com.mctech.domain.validation.PhoneNumberValidator
 
-class RegisterUserUseCase(private val authService: AuthService) {
-    suspend fun execute(registerUser: RegisterUser): Result {
+class AuthenticationUseCase(private val authService: AuthService) {
+    suspend fun execute(authRequest: AuthRequest): Result {
         try {
             // Validation
-            with(registerUser){
-                user.email.takeUnless {
+            with(authRequest) {
+                email.takeUnless {
                     EmailValidator(it)
                 }?.let {
                     throw AuthException.InvalidEmailFormatException
-                }
-
-                user.phoneNumber.takeUnless {
-                    PhoneNumberValidator(it)
-                }?.let {
-                    throw AuthException.InvalidPhoneNumberFormatException
                 }
 
                 password.takeUnless {
@@ -32,8 +25,7 @@ class RegisterUserUseCase(private val authService: AuthService) {
                 }
             }
 
-            // Register user
-            if (authService.registerUser(registerUser)) {
+            if (authService.login(authRequest)) {
                 return Result.Success(authService.fetchLoggedUser()!!)
             }
         } catch (exception: Throwable) {

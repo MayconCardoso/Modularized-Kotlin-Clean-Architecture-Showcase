@@ -10,11 +10,3 @@ data class User(
     val email: String?,
     var profilePicture: String?
 )
-
-fun User.checkEmail() : Boolean {
-    return true
-}
-
-fun User.checkPhoneNumber() : Boolean {
-    return true
-}
