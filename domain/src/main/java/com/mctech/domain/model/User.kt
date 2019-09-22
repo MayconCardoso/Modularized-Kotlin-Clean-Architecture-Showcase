@@ -6,7 +6,6 @@ package com.mctech.domain.model
 data class User(
     val id: String,
     val name: String,
-    val phoneNumber: String?,
     val email: String?,
     var profilePicture: String?
 )

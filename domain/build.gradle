@@ -3,4 +3,7 @@ apply plugin: 'kotlin'
 dependencies {
     implementation globalDependencies.kotlinStdLib
     implementation globalDependencies.kotlinCoroutinesCore
+
+    testImplementation globalTestDependencies.jUnit
+    testImplementation globalTestDependencies.assertJ
 }

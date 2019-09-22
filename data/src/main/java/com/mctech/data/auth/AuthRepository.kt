@@ -22,8 +22,7 @@ class AuthRepository(val firebaseAuth: FirebaseAuth) : AuthService {
             it.uid,
             it.displayName.orEmpty(),
             it.phoneNumber,
-            it.email,
-            it.photoUrl?.toString()
+            it.email
         )
     }
 
