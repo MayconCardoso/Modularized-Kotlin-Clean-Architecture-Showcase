@@ -16,34 +16,38 @@ class LoginViewModel(
     private val authenticationUseCase: AuthenticationUseCase,
     private val registerUserUseCase: RegisterUserUseCase
 ) : BaseViewModel() {
-
     private val _loginSreenState = MutableLiveData<LoginState>(LoginState.Unauthenticated)
     val loginSreenState: LiveData<LoginState> get() = _loginSreenState
 
     private val _lastAuthRequest = MutableLiveData<AuthRequest>()
     val lastAuthRequest: LiveData<AuthRequest> get() = _lastAuthRequest
 
+    @MainThread
     fun navigationToSignUp(authRequest: AuthRequest) {
         _lastAuthRequest.value = authRequest
+        _loginSreenState.value = LoginState.Unauthenticated
     }
 
     @MainThread
-    suspend fun doLogin(authRequest: AuthRequest) {
+    suspend fun doLogin(authRequest: AuthRequest) = executeAuthInteraction {
+        authenticationUseCase.execute(authRequest)
+    }
+
+    @MainThread
+    suspend fun registerUser(registerUser: RegisterUser) = executeAuthInteraction {
+        registerUserUseCase.execute(registerUser)
+    }
+
+    private suspend fun executeAuthInteraction(block: suspend () -> Result) {
         _loginSreenState.value = LoginState.Loading
 
-        val authResult = authenticationUseCase.execute(authRequest)
-
+        val authResult = block.invoke()
         when (authResult) {
             is Result.Success<*> -> _loginSreenState.value = LoginState.Authenticated
             is Result.Failure -> _loginSreenState.value = LoginState.Error(
                 error = authResult.throwable as AuthException
             )
         }
-    }
-
-    @MainThread
-    suspend fun registerUser(registerUser: RegisterUser){
-        _loginSreenState.value = LoginState.Loading
 
     }
 }

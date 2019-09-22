@@ -21,7 +21,6 @@ class AuthRepository(val firebaseAuth: FirebaseAuth) : AuthService {
         User(
             it.uid,
             it.displayName.orEmpty(),
-            it.phoneNumber,
             it.email
         )
     }

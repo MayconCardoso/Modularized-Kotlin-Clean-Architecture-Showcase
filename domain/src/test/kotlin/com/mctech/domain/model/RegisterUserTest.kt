@@ -18,7 +18,8 @@ class RegisterUserTest{
     fun `should throw when name is empty`() {
         val request = createAuthRequest(
             email = EMAIL,
-            password = PASSWORD
+            password = PASSWORD,
+            passwordConfirmation = PASSWORD
         )
 
         Assertions.assertThatThrownBy { request.validateOrThrow() }
@@ -31,7 +32,8 @@ class RegisterUserTest{
     fun `should throw when email fail`() {
         val request = createAuthRequest(
             name = NAME,
-            password = PASSWORD
+            password = PASSWORD,
+            passwordConfirmation = PASSWORD
         )
 
         Assertions.assertThatThrownBy { request.validateOrThrow() }
@@ -54,22 +56,42 @@ class RegisterUserTest{
     }
 
     @Test
+    fun `should throw when passwords do not match`() {
+        val request = createAuthRequest(
+            name = NAME,
+            password = "123456",
+            passwordConfirmation = "654321",
+            email = EMAIL
+        )
+
+        Assertions.assertThatThrownBy { request.validateOrThrow() }
+            .isEqualTo(
+                AuthException.PasswordsDoNotMatchException
+            )
+    }
+
+    @Test
     fun `should validate`() {
         val request = createAuthRequest(
             email = EMAIL,
             name = NAME,
-            password = PASSWORD
+            password = PASSWORD,
+            passwordConfirmation = PASSWORD
         )
         request.validateOrThrow()
     }
 
-    private fun createAuthRequest(email: String = "", name : String = "", password : String = "") = RegisterUser(
+    private fun createAuthRequest(
+        email: String = "",
+        name : String = "",
+        password : String = "",
+        passwordConfirmation : String = ""
+    ) = RegisterUser(
         user = User(
-            id = "",
             name = name,
-            email = email,
-            profilePicture = ""
+            email = email
         ),
-        password = password
+        password = password,
+        passwordConfirmation = passwordConfirmation
     )
 }

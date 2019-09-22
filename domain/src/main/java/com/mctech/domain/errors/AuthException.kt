@@ -6,9 +6,9 @@ sealed class AuthException : RuntimeException(){
     object WrongCredentialsException : AuthException()
     object NoAuthSessionFoundException : AuthException()
     object PasswordUnderFiveCharactersException : AuthException()
+    object PasswordsDoNotMatchException : AuthException()
     object UnknownAuthException : AuthException()
 
     object AlreadyRegisteredUserException : AuthException()
     object InvalidEmailFormatException : AuthException()
-    object InvalidPhoneNumberFormatException : AuthException()
 }

@@ -1,15 +1,10 @@
 package com.mctech.features.login
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.mctech.domain.errors.AuthException
 import com.mctech.domain.model.AuthRequest
-import com.mctech.feature.arq.BaseFragment
 import com.mctech.feature.arq.extentions.bindData
 import com.mctech.feature.arq.extentions.enableByState
 import com.mctech.feature.arq.extentions.getValue
@@ -19,14 +14,10 @@ import kotlinx.android.synthetic.main.fragment_sign_in.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class LoginSignInFragment : BaseFragment<LoginViewModel>() {
+class LoginSignInFragment : BaseLoginFragment() {
     private val loginViewModel: LoginViewModel by sharedViewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ) = inflater.inflate(R.layout.fragment_sign_in, container, false)
+    override fun getLayoutId() = R.layout.fragment_sign_in
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -89,17 +80,5 @@ class LoginSignInFragment : BaseFragment<LoginViewModel>() {
     private fun switchState(isLoading: Boolean) {
         setProgressState(isLoading)
         setFormState(!isLoading)
-    }
-
-    private fun showError(error: AuthException) {
-        val errorMessage = when (error) {
-            is AuthException.EmptyFormValueException -> R.string.auth_form_empty
-            is AuthException.UserNotFoundException -> R.string.auth_user_not_found
-            is AuthException.InvalidEmailFormatException -> R.string.auth_email_bad_format
-            is AuthException.PasswordUnderFiveCharactersException -> R.string.auth_invalid_password
-            is AuthException.WrongCredentialsException -> R.string.auth_wrong_credentials
-            else -> R.string.auth_unknown_error
-        }
-        Toast.makeText(activity, errorMessage, Toast.LENGTH_LONG).show()
     }
 }

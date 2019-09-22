@@ -7,7 +7,11 @@ import com.mctech.domain.validation.PasswordlValidator
 /**
  * @author MAYCON CARDOSO on 2019-07-25.
  */
-data class RegisterUser(val user: User, val password: String) {
+data class RegisterUser(
+    val user: User,
+    val password: String,
+    val passwordConfirmation : String
+) {
     fun validateOrThrow() {
         if (user.name.isEmpty())
             throw AuthException.EmptyFormValueException
@@ -17,5 +21,8 @@ data class RegisterUser(val user: User, val password: String) {
 
         if (!PasswordlValidator(password))
             throw AuthException.PasswordUnderFiveCharactersException
+
+        if (password != passwordConfirmation)
+            throw AuthException.PasswordsDoNotMatchException
     }
 }
