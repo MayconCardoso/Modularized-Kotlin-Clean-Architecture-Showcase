@@ -18,7 +18,5 @@ abstract class BaseFragment<VM : ViewModel> : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(getLayoutId(), container, false)
-    }
+    ) : View = inflater.inflate(getLayoutId(), container, false)
 }

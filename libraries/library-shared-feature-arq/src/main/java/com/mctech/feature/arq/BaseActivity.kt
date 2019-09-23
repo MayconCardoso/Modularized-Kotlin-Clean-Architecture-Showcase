@@ -9,8 +9,5 @@ import org.koin.core.parameter.parametersOf
  * @author MAYCON CARDOSO on 2019-09-05.
  */
 abstract class BaseActivity<VM : BaseViewModel> : AppCompatActivity() {
-    val navigator: Navigator by inject {
-        // Passing the activity as a parameter.
-        parametersOf(this)
-    }
+    val navigator: Navigator by inject { parametersOf(this) }
 }
