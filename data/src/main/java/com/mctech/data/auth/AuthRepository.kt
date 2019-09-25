@@ -68,7 +68,6 @@ class AuthRepository(val firebaseAuth: FirebaseAuth) : AuthService {
                 is FirebaseAuthInvalidUserException -> throw AuthException.UserNotFoundException
                 else -> throw AuthException.UnknownAuthException
             }
-
         }
     }
 

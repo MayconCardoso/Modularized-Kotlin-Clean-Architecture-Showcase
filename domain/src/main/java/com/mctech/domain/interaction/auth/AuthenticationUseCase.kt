@@ -3,10 +3,11 @@ package com.mctech.domain.interaction.auth
 import com.mctech.domain.errors.AuthException
 import com.mctech.domain.interaction.Result
 import com.mctech.domain.model.AuthRequest
+import com.mctech.domain.model.User
 import com.mctech.domain.services.AuthService
 
 class AuthenticationUseCase(private val authService: AuthService) {
-    suspend fun execute(authRequest: AuthRequest): Result {
+    suspend fun execute(authRequest: AuthRequest): Result<User> {
         try {
             authRequest.validateOrThrow()
 

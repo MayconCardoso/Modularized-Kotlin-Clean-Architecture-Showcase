@@ -1,7 +1,8 @@
 package com.mctech.domain.model
 
+import com.mctech.domain.TestDataFactory
 import com.mctech.domain.errors.AuthException
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.Test
 
 /**
@@ -16,13 +17,13 @@ class RegisterUserTest{
 
     @Test
     fun `should throw when name is empty`() {
-        val request = createAuthRequest(
+        val request = TestDataFactory.createRegisterUserRequest(
             email = EMAIL,
             password = PASSWORD,
             passwordConfirmation = PASSWORD
         )
 
-        Assertions.assertThatThrownBy { request.validateOrThrow() }
+        assertThatThrownBy { request.validateOrThrow() }
             .isEqualTo(
                 AuthException.EmptyFormValueException
             )
@@ -30,13 +31,13 @@ class RegisterUserTest{
 
     @Test
     fun `should throw when email fail`() {
-        val request = createAuthRequest(
+        val request = TestDataFactory.createRegisterUserRequest(
             name = NAME,
             password = PASSWORD,
             passwordConfirmation = PASSWORD
         )
 
-        Assertions.assertThatThrownBy { request.validateOrThrow() }
+        assertThatThrownBy { request.validateOrThrow() }
             .isEqualTo(
                 AuthException.InvalidEmailFormatException
             )
@@ -44,12 +45,12 @@ class RegisterUserTest{
 
     @Test
     fun `should throw when password fail`() {
-        val request = createAuthRequest(
+        val request = TestDataFactory.createRegisterUserRequest(
             name = NAME,
             email = EMAIL
         )
 
-        Assertions.assertThatThrownBy { request.validateOrThrow() }
+        assertThatThrownBy { request.validateOrThrow() }
             .isEqualTo(
                 AuthException.PasswordUnderFiveCharactersException
             )
@@ -57,14 +58,14 @@ class RegisterUserTest{
 
     @Test
     fun `should throw when passwords do not match`() {
-        val request = createAuthRequest(
+        val request = TestDataFactory.createRegisterUserRequest(
             name = NAME,
             password = "123456",
             passwordConfirmation = "654321",
             email = EMAIL
         )
 
-        Assertions.assertThatThrownBy { request.validateOrThrow() }
+        assertThatThrownBy { request.validateOrThrow() }
             .isEqualTo(
                 AuthException.PasswordsDoNotMatchException
             )
@@ -72,7 +73,7 @@ class RegisterUserTest{
 
     @Test
     fun `should validate`() {
-        val request = createAuthRequest(
+        val request = TestDataFactory.createRegisterUserRequest(
             email = EMAIL,
             name = NAME,
             password = PASSWORD,
@@ -80,18 +81,4 @@ class RegisterUserTest{
         )
         request.validateOrThrow()
     }
-
-    private fun createAuthRequest(
-        email: String = "",
-        name : String = "",
-        password : String = "",
-        passwordConfirmation : String = ""
-    ) = RegisterUser(
-        user = User(
-            name = name,
-            email = email
-        ),
-        password = password,
-        passwordConfirmation = passwordConfirmation
-    )
 }

@@ -1,5 +1,6 @@
 package com.mctech.domain.model
 
+import com.mctech.domain.TestDataFactory
 import com.mctech.domain.errors.AuthException
 import org.assertj.core.api.Assertions
 import org.junit.Test
@@ -10,7 +11,7 @@ import org.junit.Test
 class AuthRequestTest {
     @Test
     fun `should throw when email fail`() {
-        val request = createAuthRequest("")
+        val request = TestDataFactory.createAuthRequest("")
         Assertions.assertThatThrownBy { request.validateOrThrow() }
             .isEqualTo(
                 AuthException.InvalidEmailFormatException
@@ -19,12 +20,7 @@ class AuthRequestTest {
 
     @Test
     fun `should validate`() {
-        val request = createAuthRequest("maycon.santos.cardoso@gmail.com")
+        val request = TestDataFactory.createAuthRequest("maycon.santos.cardoso@gmail.com")
         request.validateOrThrow()
     }
-
-    private fun createAuthRequest(email: String) = AuthRequest(
-        email = email,
-        password = ""
-    )
 }

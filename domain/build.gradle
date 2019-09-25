@@ -6,4 +6,10 @@ dependencies {
 
     testImplementation globalTestDependencies.jUnit
     testImplementation globalTestDependencies.assertJ
+
+    testImplementation globalTestDependencies.jUnit
+    testImplementation globalTestDependencies.assertJ
+    testImplementation globalTestDependencies.coroutines
+    testImplementation globalTestDependencies.mockitoKotlin
+    testImplementation globalTestDependencies.testArqCor
 }

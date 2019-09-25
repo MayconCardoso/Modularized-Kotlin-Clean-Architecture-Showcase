@@ -7,6 +7,7 @@ dependencies {
     implementation project(path: submodulesFeatures.navigation)
     implementation project(path: submodulesLibraries.sharedFeatureArq)
     implementation project(path: submodulesLibraries.appTheme)
+    implementation project(path: submodulesLibraries.logger)
 
     implementation globalDependencies.koin
     implementation globalDependencies.koinViewModel
@@ -20,4 +21,12 @@ dependencies {
     implementation globalDependencies.lifeCycleLiveData
 
     implementation globalDependencies.appCompact
+
+
+    testImplementation globalTestDependencies.jUnit
+    testImplementation globalTestDependencies.assertJ
+    testImplementation globalTestDependencies.coroutines
+    testImplementation globalTestDependencies.mockitoKotlin
+    testImplementation globalTestDependencies.testArqCor
+    testImplementation globalTestDependencies.koinTest
 }

@@ -8,9 +8,9 @@ import org.koin.dsl.module
  * @author MAYCON CARDOSO on 2019-09-05.
  */
 val analyticsModule = module {
-    single<AnalyticsHelper> {
+    single {
         FirebaseAnalyticsHelper(
             get()
-        )
+        ) as AnalyticsHelper
     }
 }

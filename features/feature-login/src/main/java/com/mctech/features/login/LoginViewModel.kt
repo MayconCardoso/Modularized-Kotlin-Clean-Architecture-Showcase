@@ -9,6 +9,7 @@ import com.mctech.domain.interaction.auth.AuthenticationUseCase
 import com.mctech.domain.interaction.auth.RegisterUserUseCase
 import com.mctech.domain.model.AuthRequest
 import com.mctech.domain.model.RegisterUser
+import com.mctech.domain.model.User
 import com.mctech.feature.arq.BaseViewModel
 import com.mctech.features.login.state.LoginState
 
@@ -38,7 +39,7 @@ class LoginViewModel(
         registerUserUseCase.execute(registerUser)
     }
 
-    private suspend fun executeAuthInteraction(block: suspend () -> Result) {
+    private suspend fun executeAuthInteraction(block: suspend () -> Result<User>) {
         _loginSreenState.value = LoginState.Loading
 
         val authResult = block.invoke()
