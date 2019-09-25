@@ -8,5 +8,5 @@ import org.koin.core.context.GlobalContext.get
  * @author MAYCON CARDOSO on 2019-09-05.
  */
 abstract class BaseViewModel : ViewModel() {
-    val logger : Logger by get().koin.inject()
+    val logger: Logger by get().koin.inject()
 }

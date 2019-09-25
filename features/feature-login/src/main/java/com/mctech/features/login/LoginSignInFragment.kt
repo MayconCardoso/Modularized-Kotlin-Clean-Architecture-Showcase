@@ -30,34 +30,29 @@ class LoginSignInFragment : BaseLoginFragment() {
 
     private fun tryLogin() {
         lifecycleScope.launch {
-            loginViewModel.doLogin(
-                AuthRequest(
-                    email = etUsername.getValue(),
-                    password = etPassword.getValue()
-                )
-            )
+            loginViewModel.doLogin( createAuthRequest() )
         }
     }
 
     private fun navigateToSignUp() {
-        loginViewModel.navigationToSignUp(
-            AuthRequest(
-                email = etUsername.getValue(),
-                password = etPassword.getValue()
-            )
-        )
+        loginViewModel.navigationToSignUp( createAuthRequest() )
 
         val navController = findNavController()
         navController.navigate(R.id.action_loginFormFragment_to_loginSignUpFragment)
     }
 
+    private fun createAuthRequest() = AuthRequest(
+        email = etUsername.getValue(),
+        password = etPassword.getValue()
+    )
+
     private fun renderUi(loginState: LoginState) {
         when (loginState) {
-            is LoginState.Unauthenticated -> {
-                switchState(isLoading = false)
-            }
             is LoginState.Loading -> {
                 switchState(isLoading = true)
+            }
+            is LoginState.Unauthenticated -> {
+                switchState(isLoading = false)
             }
             is LoginState.Error -> {
                 switchState(isLoading = false)
