@@ -6,6 +6,8 @@ dependencies {
     implementation project(path: submodulesFeatures.navigation)
     implementation project(path: submodulesLibraries.logger)
     implementation globalDependencies.appCompact
+
+    implementation globalDependencies.lifeCycleViewModel
     implementation globalDependencies.lifeCycleLiveRuntime
     implementation globalDependencies.lifeCycleLiveData
     implementation globalDependencies.koin

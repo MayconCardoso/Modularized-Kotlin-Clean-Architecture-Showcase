@@ -10,6 +10,7 @@ import com.mctech.feature.arq.extentions.bindData
 import com.mctech.feature.arq.extentions.enableByState
 import com.mctech.feature.arq.extentions.getValue
 import com.mctech.feature.arq.extentions.setVisibilityByState
+import com.mctech.features.login.interaction.LoginUserInteraction
 import com.mctech.features.login.state.LoginState
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.launch
@@ -45,7 +46,7 @@ class LoginSignUpFragment : BaseLoginFragment() {
 
     private fun tryRegisterUser() {
         lifecycleScope.launch {
-            loginViewModel.registerUser(
+            loginViewModel.suspendedInteraction(LoginUserInteraction.TryRegisterUser(
                 RegisterUser(
                     user = User(
                         name = etName.getValue(),
@@ -54,7 +55,7 @@ class LoginSignUpFragment : BaseLoginFragment() {
                     password = etPassword.getValue(),
                     passwordConfirmation = etConfirmPassword.getValue()
                 )
-            )
+            ))
         }
     }
 

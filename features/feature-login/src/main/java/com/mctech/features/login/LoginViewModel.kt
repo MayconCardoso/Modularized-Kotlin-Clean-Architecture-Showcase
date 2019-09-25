@@ -11,6 +11,8 @@ import com.mctech.domain.model.AuthRequest
 import com.mctech.domain.model.RegisterUser
 import com.mctech.domain.model.User
 import com.mctech.feature.arq.BaseViewModel
+import com.mctech.feature.arq.UserInteraction
+import com.mctech.features.login.interaction.LoginUserInteraction
 import com.mctech.features.login.state.LoginState
 
 class LoginViewModel(
@@ -23,20 +25,29 @@ class LoginViewModel(
     private val _lastAuthRequest = MutableLiveData<AuthRequest>()
     val lastAuthRequest: LiveData<AuthRequest> get() = _lastAuthRequest
 
+    override suspend fun handleUserInteraction(interaction: UserInteraction) {
+        when(interaction){
+            is LoginUserInteraction.NavigateToSignUn    -> navigationToSignUp(interaction.authRequest)
+            is LoginUserInteraction.TryLogin            -> doLogin(interaction.authRequest)
+            is LoginUserInteraction.TryRegisterUser     -> registerUser(interaction.registerUser)
+        }
+    }
+
+
     @MainThread
-    fun navigationToSignUp(authRequest: AuthRequest) {
-        _lastAuthRequest.value = authRequest
-        _loginSreenState.value = LoginState.Unauthenticated
+    private suspend fun registerUser(registerUser: RegisterUser) = executeAuthInteraction {
+        registerUserUseCase.execute(registerUser)
     }
 
     @MainThread
-    suspend fun doLogin(authRequest: AuthRequest) = executeAuthInteraction {
+    private suspend fun doLogin(authRequest: AuthRequest) = executeAuthInteraction {
         authenticationUseCase.execute(authRequest)
     }
 
     @MainThread
-    suspend fun registerUser(registerUser: RegisterUser) = executeAuthInteraction {
-        registerUserUseCase.execute(registerUser)
+    private fun navigationToSignUp(authRequest: AuthRequest) {
+        _lastAuthRequest.value = authRequest
+        _loginSreenState.value = LoginState.Unauthenticated
     }
 
     private suspend fun executeAuthInteraction(block: suspend () -> Result<User>) {

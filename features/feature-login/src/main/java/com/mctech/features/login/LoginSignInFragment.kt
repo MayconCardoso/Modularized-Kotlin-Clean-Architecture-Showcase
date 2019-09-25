@@ -9,6 +9,7 @@ import com.mctech.feature.arq.extentions.bindData
 import com.mctech.feature.arq.extentions.enableByState
 import com.mctech.feature.arq.extentions.getValue
 import com.mctech.feature.arq.extentions.setVisibilityByState
+import com.mctech.features.login.interaction.LoginUserInteraction
 import com.mctech.features.login.state.LoginState
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 import kotlinx.coroutines.launch
@@ -30,15 +31,17 @@ class LoginSignInFragment : BaseLoginFragment() {
 
     private fun tryLogin() {
         lifecycleScope.launch {
-            loginViewModel.doLogin( createAuthRequest() )
+            loginViewModel.suspendedInteraction(
+                LoginUserInteraction.TryLogin(createAuthRequest())
+            )
         }
     }
 
     private fun navigateToSignUp() {
-        loginViewModel.navigationToSignUp( createAuthRequest() )
-
-        val navController = findNavController()
-        navController.navigate(R.id.action_loginFormFragment_to_loginSignUpFragment)
+        loginViewModel.interact(
+            LoginUserInteraction.NavigateToSignUn( createAuthRequest())
+        )
+        findNavController().navigate(R.id.action_loginFormFragment_to_loginSignUpFragment)
     }
 
     private fun createAuthRequest() = AuthRequest(
