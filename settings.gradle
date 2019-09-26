@@ -10,3 +10,5 @@ include ':libraries:library-shared-feature-arq'
 include ':features:feature-onboarding'
 include ':features:feature-login'
 include ':features:feature-navigation'
+
+include ':tests:library-shared-feature-arq'

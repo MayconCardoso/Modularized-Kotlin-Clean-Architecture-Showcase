@@ -1,7 +1,7 @@
-package com.mctech.features.onboarding
+package com.mctech.test.arq.rules
 
-import mctech.libraries.logger.Logger
-import mctech.libraries.logger.MutedLogger
+import com.mctech.libraries.logger.Logger
+import com.mctech.libraries.logger.MutedLogger
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 import org.koin.core.context.startKoin

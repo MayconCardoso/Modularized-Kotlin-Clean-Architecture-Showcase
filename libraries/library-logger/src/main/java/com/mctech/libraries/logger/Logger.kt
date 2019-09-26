@@ -1,4 +1,4 @@
-package mctech.libraries.logger
+package com.mctech.libraries.logger
 
 /**
  * @author MAYCON CARDOSO on 2019-07-22.

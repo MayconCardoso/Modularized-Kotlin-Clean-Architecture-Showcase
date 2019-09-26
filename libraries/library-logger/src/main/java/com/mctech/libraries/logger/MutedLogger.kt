@@ -1,4 +1,4 @@
-package mctech.libraries.logger
+package com.mctech.libraries.logger
 
 
 /**

@@ -1,7 +1,7 @@
 package com.mctech.kotlinlearning.di.modules
 
 import com.mctech.kotlinlearning.platform.logger.LogcatLogger
-import mctech.libraries.logger.Logger
+import com.mctech.libraries.logger.Logger
 import org.koin.dsl.module
 
 /**

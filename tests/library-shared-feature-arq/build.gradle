@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    implementation project(path: submodulesLibraries.logger)
+    implementation globalDependencies.lifeCycleLiveData
+
+    api globalTestDependencies.jUnit
+    api globalTestDependencies.assertJ
+    api globalTestDependencies.koinTest
+    api globalTestDependencies.testArqCor
+    api globalTestDependencies.coroutines
+    api globalTestDependencies.mockitoKotlin
+}

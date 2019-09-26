@@ -1,4 +1,4 @@
-package com.mctech.features.onboarding
+package com.mctech.test.arq.rules
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.Dispatchers

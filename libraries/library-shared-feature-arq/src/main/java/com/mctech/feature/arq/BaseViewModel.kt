@@ -2,8 +2,8 @@ package com.mctech.feature.arq
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mctech.libraries.logger.Logger
 import kotlinx.coroutines.launch
-import mctech.libraries.logger.Logger
 import org.koin.core.context.GlobalContext.get
 
 /**

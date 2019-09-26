@@ -1,7 +1,7 @@
 package com.mctech.kotlinlearning.platform.logger
 
 import android.util.Log
-import mctech.libraries.logger.Logger
+import com.mctech.libraries.logger.Logger
 
 /**
  * @author MAYCON CARDOSO on 2019-07-22.

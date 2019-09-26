@@ -57,6 +57,10 @@ ext {
             onBoarding                      : ':features:feature-onboarding',
             navigation                      : ':features:feature-navigation',
     ]
+
+    submodulesTest = [
+            sharedFeatureArq                : ':tests:library-shared-feature-arq',
+    ]
     //==============================================================================================
     //
     //
