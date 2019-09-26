@@ -25,7 +25,7 @@ abstract class BaseViewModel : ViewModel() {
         handleUserInteraction(userInteraction)
     }
 
-    protected open suspend fun handleUserInteraction(userInteraction: UserInteraction) = Unit
+    protected open suspend fun handleUserInteraction(interaction: UserInteraction) = Unit
 
     fun reprocessLastInteraction() {
         viewModelScope.launch {
