@@ -39,7 +39,7 @@ class AuthenticationUseCaseTest {
 
     @Test
     fun `should sign in`() = runBlockingTest {
-        whenever(authService.login(any())).thenReturn(true)
+        whenever(authService.login(authRequest)).thenReturn(true)
         whenever(authService.fetchLoggedUser()).thenReturn(expectedUser)
 
         val result = authSessionUseCase.execute(authRequest)
@@ -47,6 +47,17 @@ class AuthenticationUseCaseTest {
 
         assertThat(result).isInstanceOf(Result.Success::class.java)
         assertThat(resultUser).isEqualTo(expectedUser)
+    }
+
+    @Test
+    fun `should fail throwing auth exception`() = runBlockingTest {
+        whenever(authService.login(any())).thenThrow(AuthException.WrongCredentialsException)
+
+        val result = authSessionUseCase.execute(authRequest)
+        val resultException = (result as Result.Failure).throwable
+
+        assertThat(result).isInstanceOf(Result.Failure::class.java)
+        assertThat(resultException).isEqualTo(AuthException.WrongCredentialsException)
     }
 
     @Test
@@ -59,17 +70,6 @@ class AuthenticationUseCaseTest {
 
         assertThat(result).isInstanceOf(Result.Failure::class.java)
         assertThat(resultException).isEqualTo(AuthException.UnknownAuthException)
-    }
-
-    @Test
-    fun `should fail throwing auth exception`() = runBlockingTest {
-        whenever(authService.login(any())).thenThrow(AuthException.WrongCredentialsException)
-
-        val result = authSessionUseCase.execute(authRequest)
-        val resultException = (result as Result.Failure).throwable
-
-        assertThat(result).isInstanceOf(Result.Failure::class.java)
-        assertThat(resultException).isEqualTo(AuthException.WrongCredentialsException)
     }
 
     @Test

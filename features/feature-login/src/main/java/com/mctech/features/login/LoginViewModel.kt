@@ -50,12 +50,13 @@ class LoginViewModel(
         _loginSreenState.value = LoginState.Unauthenticated
     }
 
+    @MainThread
     private suspend fun executeAuthInteraction(block: suspend () -> Result<User>) {
         _loginSreenState.value = LoginState.Loading
 
         when (val authResult = block.invoke()) {
-            is Result.Success<*> -> _loginSreenState.value = LoginState.Authenticated
-            is Result.Failure -> _loginSreenState.value = LoginState.Error(
+            is Result.Success<*>    -> _loginSreenState.value = LoginState.Authenticated
+            is Result.Failure       -> _loginSreenState.value = LoginState.Error(
                 error = authResult.throwable as AuthException
             )
         }

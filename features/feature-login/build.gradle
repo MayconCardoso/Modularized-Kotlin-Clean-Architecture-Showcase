@@ -25,4 +25,7 @@ dependencies {
     implementation globalDependencies.appCompact
     implementation globalDependencies.constraintlayout
     implementation globalDependencies.materialDesign
+
+
+    testImplementation project(path: submodulesTest.sharedFeatureArq)
 }
