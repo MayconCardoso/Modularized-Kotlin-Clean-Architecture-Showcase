@@ -12,4 +12,7 @@ dependencies {
     implementation globalDependencies.lifeCycleLiveData
     implementation globalDependencies.koin
     implementation globalDependencies.koinScope
+
+
+    testImplementation project(path: submodulesTest.sharedFeatureArq)
 }
