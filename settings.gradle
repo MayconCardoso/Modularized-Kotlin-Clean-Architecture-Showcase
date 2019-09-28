@@ -6,9 +6,9 @@ include ':libraries:library-logger'
 include ':libraries:library-analytics'
 include ':libraries:library-app-theme'
 include ':libraries:library-shared-feature-arq'
+include ':libraries:library-shared-feature-arq-testing'
 
 include ':features:feature-onboarding'
 include ':features:feature-login'
 include ':features:feature-navigation'
 
-include ':tests:library-shared-feature-arq'

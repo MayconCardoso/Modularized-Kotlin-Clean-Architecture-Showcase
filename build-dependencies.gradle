@@ -59,7 +59,7 @@ ext {
     ]
 
     submodulesTest = [
-            sharedFeatureArq                : ':tests:library-shared-feature-arq',
+            sharedFeatureArq                : ':libraries:library-shared-feature-arq-testing',
     ]
     //==============================================================================================
     //
