@@ -5,17 +5,16 @@ import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.mctech.domain.model.AuthRequest
-import com.mctech.feature.arq.extentions.bindData
-import com.mctech.feature.arq.extentions.enableByState
-import com.mctech.feature.arq.extentions.getValue
-import com.mctech.feature.arq.extentions.setVisibilityByState
+import com.mctech.feature.arq.BaseFragment
+import com.mctech.feature.arq.extentions.*
 import com.mctech.features.login.interaction.LoginUserInteraction
 import com.mctech.features.login.state.LoginState
+import com.mctech.features.login.state.toStateResource
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class LoginSignInFragment : BaseLoginFragment() {
+class LoginSignInFragment : BaseFragment<LoginViewModel>() {
     private val loginViewModel: LoginViewModel by sharedViewModel()
 
     override fun getLayoutId() = R.layout.fragment_sign_in
@@ -23,7 +22,7 @@ class LoginSignInFragment : BaseLoginFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bindData(loginViewModel.loginSreenState) { renderUi(it) }
+        bindData(loginViewModel.loginScreenState) { renderUi(it) }
 
         btSignIn?.setOnClickListener { tryLogin() }
         btSignUp?.setOnClickListener { navigateToSignUp() }
@@ -39,7 +38,7 @@ class LoginSignInFragment : BaseLoginFragment() {
 
     private fun navigateToSignUp() {
         loginViewModel.interact(
-            LoginUserInteraction.NavigateToSignUn( createAuthRequest())
+            LoginUserInteraction.NavigateToSignUn(createAuthRequest())
         )
         findNavController().navigate(R.id.action_loginFormFragment_to_loginSignUpFragment)
     }
@@ -59,7 +58,7 @@ class LoginSignInFragment : BaseLoginFragment() {
             }
             is LoginState.Error -> {
                 switchState(isLoading = false)
-                showError(loginState.error)
+                toast(loginState.toStateResource().message)
             }
         }
     }

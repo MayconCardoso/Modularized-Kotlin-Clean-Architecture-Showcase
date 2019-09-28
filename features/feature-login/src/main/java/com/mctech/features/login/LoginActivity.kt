@@ -14,7 +14,7 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        bindData(loginViewModel.loginSreenState) {
+        bindData(loginViewModel.loginScreenState) {
             when (it) {
                 is LoginState.Authenticated -> navigator.navigateTo(
                     destination = Screen.Dashboard,

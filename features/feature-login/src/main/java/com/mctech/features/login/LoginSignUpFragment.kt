@@ -6,17 +6,16 @@ import androidx.lifecycle.lifecycleScope
 import com.mctech.domain.model.AuthRequest
 import com.mctech.domain.model.RegisterUser
 import com.mctech.domain.model.User
-import com.mctech.feature.arq.extentions.bindData
-import com.mctech.feature.arq.extentions.enableByState
-import com.mctech.feature.arq.extentions.getValue
-import com.mctech.feature.arq.extentions.setVisibilityByState
+import com.mctech.feature.arq.BaseFragment
+import com.mctech.feature.arq.extentions.*
 import com.mctech.features.login.interaction.LoginUserInteraction
 import com.mctech.features.login.state.LoginState
+import com.mctech.features.login.state.toStateResource
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class LoginSignUpFragment : BaseLoginFragment() {
+class LoginSignUpFragment : BaseFragment<LoginViewModel>() {
     private val loginViewModel: LoginViewModel by sharedViewModel()
 
     override fun getLayoutId() = R.layout.fragment_sign_up
@@ -24,7 +23,7 @@ class LoginSignUpFragment : BaseLoginFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bindData(loginViewModel.loginSreenState) { renderUi(it) }
+        bindData(loginViewModel.loginScreenState) { renderUi(it) }
         bindData(loginViewModel.lastAuthRequest) { autoFillUpForm(it) }
         btSignUp?.setOnClickListener { tryRegisterUser() }
     }
@@ -39,23 +38,25 @@ class LoginSignUpFragment : BaseLoginFragment() {
             }
             is LoginState.Error -> {
                 switchState(isLoading = false)
-                showError(loginState.error)
+                toast(loginState.toStateResource().message)
             }
         }
     }
 
     private fun tryRegisterUser() {
         lifecycleScope.launch {
-            loginViewModel.suspendedInteraction(LoginUserInteraction.TryRegisterUser(
-                RegisterUser(
-                    user = User(
-                        name = etName.getValue(),
-                        email = etUsername.getValue()
-                    ),
-                    password = etPassword.getValue(),
-                    passwordConfirmation = etConfirmPassword.getValue()
+            loginViewModel.suspendedInteraction(
+                LoginUserInteraction.TryRegisterUser(
+                    RegisterUser(
+                        user = User(
+                            name = etName.getValue(),
+                            email = etUsername.getValue()
+                        ),
+                        password = etPassword.getValue(),
+                        passwordConfirmation = etConfirmPassword.getValue()
+                    )
                 )
-            ))
+            )
         }
     }
 

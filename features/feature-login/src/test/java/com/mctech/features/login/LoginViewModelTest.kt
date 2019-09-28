@@ -42,7 +42,7 @@ class LoginViewModelTest : BaseViewModelTest() {
 
     @Test
     fun `should init with unauthenticated state`() {
-        viewModel.loginSreenState.collectValuesForTesting {
+        viewModel.loginScreenState.collectValuesForTesting {
             it.assertCount(1)
             it.assertFirst().isEqualTo(
                 LoginState.Unauthenticated
@@ -56,7 +56,7 @@ class LoginViewModelTest : BaseViewModelTest() {
 
         viewModel.interact(LoginUserInteraction.NavigateToSignUn(authRequest))
 
-        viewModel.loginSreenState.collectValuesForTesting {
+        viewModel.loginScreenState.collectValuesForTesting {
             it.assertCount(1)
             it.assertFirst().isEqualTo(LoginState.Unauthenticated)
         }
@@ -108,7 +108,7 @@ class LoginViewModelTest : BaseViewModelTest() {
     }
 
     private fun assertPassOn(interaction: LoginUserInteraction, scenario : suspend () -> Result<User>) {
-        viewModel.loginSreenState.test(
+        viewModel.loginScreenState.test(
             scenario = {
                 whenever(scenario.invoke()).thenReturn(Result.Success(expectedUser))
             },
@@ -125,7 +125,7 @@ class LoginViewModelTest : BaseViewModelTest() {
     }
 
     private fun assertFailureOn(interaction: LoginUserInteraction, scenario : suspend () -> Result<User>) {
-        viewModel.loginSreenState.test(
+        viewModel.loginScreenState.test(
             scenario = {
                 whenever(scenario.invoke()).thenReturn(Result.Failure(expectedException))
             },

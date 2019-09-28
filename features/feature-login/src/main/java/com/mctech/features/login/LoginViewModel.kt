@@ -19,8 +19,8 @@ class LoginViewModel(
     private val authenticationUseCase: AuthenticationUseCase,
     private val registerUserUseCase: RegisterUserUseCase
 ) : BaseViewModel() {
-    private val _loginSreenState = MutableLiveData<LoginState>(LoginState.Unauthenticated)
-    val loginSreenState: LiveData<LoginState> get() = _loginSreenState
+    private val _loginScreenState = MutableLiveData<LoginState>(LoginState.Unauthenticated)
+    val loginScreenState: LiveData<LoginState> get() = _loginScreenState
 
     private val _lastAuthRequest = MutableLiveData<AuthRequest>()
     val lastAuthRequest: LiveData<AuthRequest> get() = _lastAuthRequest
@@ -47,16 +47,16 @@ class LoginViewModel(
     @MainThread
     private fun navigationToSignUp(authRequest: AuthRequest) {
         _lastAuthRequest.value = authRequest
-        _loginSreenState.value = LoginState.Unauthenticated
+        _loginScreenState.value = LoginState.Unauthenticated
     }
 
     @MainThread
     private suspend fun executeAuthInteraction(block: suspend () -> Result<User>) {
-        _loginSreenState.value = LoginState.Loading
+        _loginScreenState.value = LoginState.Loading
 
         when (val authResult = block.invoke()) {
-            is Result.Success<*>    -> _loginSreenState.value = LoginState.Authenticated
-            is Result.Failure       -> _loginSreenState.value = LoginState.Error(
+            is Result.Success<*>    -> _loginScreenState.value = LoginState.Authenticated
+            is Result.Failure       -> _loginScreenState.value = LoginState.Error(
                 error = authResult.throwable as AuthException
             )
         }
