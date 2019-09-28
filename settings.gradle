@@ -5,6 +5,7 @@ include ':domain'
 include ':libraries:library-logger'
 include ':libraries:library-analytics'
 include ':libraries:library-app-theme'
+include ':libraries:library-networking'
 include ':libraries:library-shared-feature-arq'
 include ':libraries:library-shared-feature-arq-testing'
 
