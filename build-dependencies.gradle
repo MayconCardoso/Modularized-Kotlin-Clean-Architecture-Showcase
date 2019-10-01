@@ -59,6 +59,9 @@ ext {
             login                           : ':features:feature-login',
             onBoarding                      : ':features:feature-onboarding',
             navigation                      : ':features:feature-navigation',
+            quotationList                   : ':features:feature-quotation-list',
+            quotationRandom                 : ':features:feature-quotation-random',
+            quotationFiltering              : ':features:feature-quotation-filtering',
     ]
 
     submodulesTest = [

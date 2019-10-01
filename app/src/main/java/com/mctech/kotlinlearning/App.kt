@@ -32,7 +32,8 @@ class App : MultiDexApplication(){
                 // Features
                 navigatorModule,
                 onboardingModule,
-                loginModule
+                loginModule,
+                randomJokeModel
             ))
         }
     }

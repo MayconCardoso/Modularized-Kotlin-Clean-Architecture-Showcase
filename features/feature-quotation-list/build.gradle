@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    implementation project(path: submodulesPlatform.domain)
+    implementation project(path: submodulesFeatures.navigation)
+    implementation project(path: submodulesLibraries.sharedFeatureArq)
+    implementation project(path: submodulesLibraries.appTheme)
+
+    implementation globalDependencies.koin
+    implementation globalDependencies.koinViewModel
+
+    implementation globalDependencies.kotlinCoroutinesCore
+    implementation globalDependencies.kotlinCoroutinesAndroid
+
+    implementation globalDependencies.lifeCycleLiveRuntime
+    implementation globalDependencies.lifeCycleLiveExtentions
+    implementation globalDependencies.lifeCycleViewModel
+    implementation globalDependencies.lifeCycleLiveData
+
+    implementation globalDependencies.appCompact
+    implementation globalDependencies.constraintlayout
+    implementation globalDependencies.materialDesign
+
+
+    testImplementation project(path: submodulesTest.sharedFeatureArq)
+}

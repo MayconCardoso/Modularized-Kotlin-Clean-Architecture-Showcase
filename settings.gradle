@@ -11,5 +11,7 @@ include ':libraries:library-shared-feature-arq-testing'
 
 include ':features:feature-onboarding'
 include ':features:feature-login'
+include ':features:feature-quotation-filtering'
+include ':features:feature-quotation-random'
+include ':features:feature-quotation-list'
 include ':features:feature-navigation'
-

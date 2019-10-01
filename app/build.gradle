@@ -32,6 +32,9 @@ dependencies {
     implementation project(path: submodulesFeatures.navigation)
     implementation project(path: submodulesFeatures.login)
     implementation project(path: submodulesFeatures.onBoarding)
+    implementation project(path: submodulesFeatures.quotationList)
+    implementation project(path: submodulesFeatures.quotationRandom)
+    implementation project(path: submodulesFeatures.quotationFiltering)
 
 
     implementation globalDependencies.multidex
