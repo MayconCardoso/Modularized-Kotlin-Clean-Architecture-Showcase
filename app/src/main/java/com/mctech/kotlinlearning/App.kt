@@ -4,10 +4,7 @@ import androidx.multidex.MultiDexApplication
 import com.mctech.data.di.dataModule
 import com.mctech.features.login.di.loginModule
 import com.mctech.features.onboarding.di.onboardingModule
-import com.mctech.kotlinlearning.di.modules.analyticsModule
-import com.mctech.kotlinlearning.di.modules.loggingModule
-import com.mctech.kotlinlearning.di.modules.navigatorModule
-import com.mctech.kotlinlearning.di.modules.useCaseModules
+import com.mctech.kotlinlearning.di.modules.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -23,13 +20,14 @@ class App : MultiDexApplication(){
             androidLogger()
             androidContext(this@App)
             modules(listOf(
-                // Plataform
+                // Platform
                 dataModule,
                 useCaseModules,
 
                 // Libraries
                 loggingModule,
                 analyticsModule,
+                networkingModule,
 
                 // Features
                 navigatorModule,

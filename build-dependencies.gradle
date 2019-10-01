@@ -107,7 +107,8 @@ ext {
             // NETWORKING
             retrofit                        : "com.squareup.retrofit2:retrofit:$RETROFIT",
             retrofitGsonConverter           : "com.squareup.retrofit2:converter-gson:$RETROFIT",
-            okHttp                          : "com.squareup.okhttp3:okhttp:$OKHTTP"
+            okHttp                          : "com.squareup.okhttp3:okhttp:$OKHTTP",
+            okHttpLoggin                    : "com.squareup.okhttp3:logging-interceptor:$OKHTTP"
     ]
     //==============================================================================================
     //

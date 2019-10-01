@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 dependencies {
     implementation project(path: submodulesPlatform.domain)
+    implementation project(path: submodulesLibraries.networking)
 
     implementation globalDependencies.kotlinStdLib
     implementation globalDependencies.kotlinCoroutinesCore
