@@ -22,7 +22,7 @@ val networkingModule = module {
 
     single {
         RetrofitBuilder(
-            apiURL = "https://matchilling-tronald-dump-v1.p.rapidapi.com/",
+            apiURL = "https://matchilling-tronald-dump-v1.p.rapidapi.com",
             httpClient = get()
         ) as Retrofit
     }

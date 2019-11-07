@@ -39,20 +39,16 @@ class GetRandomCaseTest {
     }
 
     @Test
-    fun `should return known exception`() = runBlockingTest {
-        failureAssertion(
-            exception = QuotationException.ConnectionIssueException,
-            expectedException = QuotationException.ConnectionIssueException
-        )
-    }
+    fun `should return known exception`() = failureAssertion(
+        exception = QuotationException.ConnectionIssueException,
+        expectedException = QuotationException.ConnectionIssueException
+    )
 
     @Test
-    fun `should return unknown exception`() = runBlockingTest {
-        failureAssertion(
-            exception = RuntimeException(),
-            expectedException = QuotationException.UnknownQuotationException
-        )
-    }
+    fun `should return unknown exception`() = failureAssertion(
+        exception = RuntimeException(),
+        expectedException = QuotationException.UnknownQuotationException
+    )
 
     private fun failureAssertion(exception: Throwable, expectedException: Exception) =
         runBlockingTest {

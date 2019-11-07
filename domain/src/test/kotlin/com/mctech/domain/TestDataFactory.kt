@@ -4,6 +4,7 @@ import com.mctech.domain.model.AuthRequest
 import com.mctech.domain.model.Quotation
 import com.mctech.domain.model.RegisterUser
 import com.mctech.domain.model.User
+import java.util.*
 
 object TestDataFactory{
     fun createAuthRequest(email: String) = AuthRequest(
@@ -26,16 +27,18 @@ object TestDataFactory{
     )
 
     fun createQuotation(
+        id : String = "",
         tag : String = "",
         description: String = "",
-        date : String = "",
+        date : Date = Date(),
         author : String = "",
         twitterLink : String = ""
     ) = Quotation(
+        id = id,
         description = description,
         date = date,
         author = author,
         twitterLink = twitterLink,
-        tag = tag
+        tag = listOf(tag)
     )
 }
