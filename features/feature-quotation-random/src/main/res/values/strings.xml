@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">feature-random-joke</string>
     <string name="show_another_joke">Mostrar outra</string>
+    <string name="title_activity_random_joke">Random Quotation</string>
 </resources>

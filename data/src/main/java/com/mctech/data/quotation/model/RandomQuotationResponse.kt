@@ -18,6 +18,9 @@ class RandomQuotationResponse(
     val tags: List<String>,
 
     @SerializedName("value")
-    val description: String
+    val description: String,
+
+    @SerializedName("_embedded")
+    val embedded: RandomQuotationEmbeddedResponse
 
 )

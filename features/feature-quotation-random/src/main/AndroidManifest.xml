@@ -1,1 +1,13 @@
-<manifest package="com.mctech.feature.random_joke" />
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.mctech.feature.random_joke">
+
+    <application>
+        <activity
+                android:name=".RandomQuotationActivity"
+                android:label="@string/title_activity_random_joke"
+                android:theme="@style/KotlinLearningTheme">
+        </activity>
+    </application>
+
+</manifest>

@@ -5,7 +5,7 @@ sealed class AuthException : RuntimeException(){
     object EmptyFormValueException : AuthException()
     object WrongCredentialsException : AuthException()
     object NoAuthSessionFoundException : AuthException()
-    object PasswordUnderFiveCharactersException : AuthException()
+    object PasswordUnderSixCharactersException : AuthException()
     object PasswordsDoNotMatchException : AuthException()
     object UnknownAuthException : AuthException()
 

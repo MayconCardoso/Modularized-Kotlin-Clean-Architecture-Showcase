@@ -52,7 +52,7 @@ class RegisterUserTest{
 
         assertThatThrownBy { request.validateOrThrow() }
             .isEqualTo(
-                AuthException.PasswordUnderFiveCharactersException
+                AuthException.PasswordUnderSixCharactersException
             )
     }
 

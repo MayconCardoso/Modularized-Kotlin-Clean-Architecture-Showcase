@@ -1,9 +1,6 @@
 package com.mctech.data.auth
 
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
-import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.auth.*
 import com.mctech.domain.errors.AuthException
 import com.mctech.domain.model.AuthRequest
 import com.mctech.domain.model.RegisterUser
@@ -49,7 +46,7 @@ class AuthRepository(val firebaseAuth: FirebaseAuth) : AuthService {
         }
         catch (e : Exception){
             when(e){
-                is RuntimeException -> throw e
+                is FirebaseAuthWeakPasswordException -> throw AuthException.PasswordUnderSixCharactersException
                 else -> throw AuthException.UnknownAuthException
             }
 

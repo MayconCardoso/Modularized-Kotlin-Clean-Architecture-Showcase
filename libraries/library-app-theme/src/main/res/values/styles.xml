@@ -6,6 +6,24 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/screenBackground</item>
+        <item name="android:actionBarStyle">@style/KotlinLearningBaseTheme.ActionBar</item>
+        <item name="actionBarStyle">@style/KotlinLearningBaseTheme.ActionBar</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- other activity and action bar styles here -->
+    </style>
+
+    <style name="KotlinLearningBaseTheme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="background">@color/colorPrimary</item>
+        <item name="android:titleTextStyle">@style/KotlinLearningBaseTheme.ActionBar.TitleTextStyle</item>
+        <item name="android:subtitleTextStyle">@style/KotlinLearningBaseTheme.ActionBar.TitleTextStyle</item>
+        <item name="titleTextStyle">@style/KotlinLearningBaseTheme.ActionBar.TitleTextStyle</item>
+        <item name="subtitleTextStyle">@style/KotlinLearningBaseTheme.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="KotlinLearningBaseTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="KotlinLearningTheme" parent="KotlinLearningBaseTheme"/>

@@ -12,8 +12,8 @@ class PasswordlValidatorTest {
     @Test
     fun `should validate`() {
         assertTrue(PasswordlValidator("dsa@asio@90190"))
-        assertTrue(PasswordlValidator("12345"))
         assertTrue(PasswordlValidator("123456"))
+        assertTrue(PasswordlValidator("1234567"))
     }
 
     @Test

@@ -6,7 +6,6 @@ import com.mctech.domain.interaction.Result
 import com.mctech.domain.services.QuotationService
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
@@ -15,14 +14,13 @@ import org.junit.Test
 /**
  * @author MAYCON CARDOSO on 2019-09-30.
  */
-@ExperimentalCoroutinesApi
-class GetRandomCaseTest {
+class GetRandomQuotationCaseTest {
     private val service = mock<QuotationService>()
-    private lateinit var getRandomCase: GetRandomCase
+    private lateinit var getRandomCase: GetRandomQuotationCase
 
     @Before
     fun `before each test`() {
-        getRandomCase = GetRandomCase(service)
+        getRandomCase = GetRandomQuotationCase(service)
     }
 
     @Test
@@ -50,14 +48,13 @@ class GetRandomCaseTest {
         expectedException = QuotationException.UnknownQuotationException
     )
 
-    private fun failureAssertion(exception: Throwable, expectedException: Exception) =
-        runBlockingTest {
-            whenever(service.getRandom()).thenThrow(exception)
+    private fun failureAssertion(exception: Exception, expectedException: Exception) = runBlockingTest {
+        whenever(service.getRandom()).thenThrow(exception)
 
-            val result = getRandomCase.execute()
-            val resultException = (result as Result.Failure).throwable
+        val result = getRandomCase.execute()
+        val resultException = (result as Result.Failure).throwable
 
-            assertThat(result).isInstanceOf(Result.Failure::class.java)
-            assertThat(resultException).isEqualTo(expectedException)
-        }
+        assertThat(result).isInstanceOf(Result.Failure::class.java)
+        assertThat(resultException).isEqualTo(expectedException)
+    }
 }

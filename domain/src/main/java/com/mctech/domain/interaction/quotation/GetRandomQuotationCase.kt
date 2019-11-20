@@ -8,7 +8,7 @@ import com.mctech.domain.services.QuotationService
 /**
  * @author MAYCON CARDOSO on 2019-09-30.
  */
-class GetRandomCase(private val quotationService: QuotationService) {
+class GetRandomQuotationCase(private val quotationService: QuotationService) {
     suspend fun execute(): Result<Quotation> {
         return try {
             Result.Success(quotationService.getRandom())

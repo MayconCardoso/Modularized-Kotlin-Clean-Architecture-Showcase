@@ -2,7 +2,7 @@ package com.mctech.kotlinlearning
 
 import androidx.multidex.MultiDexApplication
 import com.mctech.data.di.dataModule
-import com.mctech.feature.random_joke.di.randomJokeModel
+import com.mctech.feature.random_joke.di.randomQuotationModel
 import com.mctech.features.login.di.loginModule
 import com.mctech.features.onboarding.di.onboardingModule
 import com.mctech.kotlinlearning.di.modules.*
@@ -34,7 +34,7 @@ class App : MultiDexApplication(){
                 navigatorModule,
                 onboardingModule,
                 loginModule,
-                randomJokeModel
+                randomQuotationModel
             ))
         }
     }

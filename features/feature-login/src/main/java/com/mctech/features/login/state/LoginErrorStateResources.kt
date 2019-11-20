@@ -16,7 +16,7 @@ data class LoginErrorStateResources(val message: Int) {
                 is AuthException.InvalidEmailFormatException -> LoginErrorStateResources(
                     R.string.auth_email_bad_format
                 )
-                is AuthException.PasswordUnderFiveCharactersException -> LoginErrorStateResources(
+                is AuthException.PasswordUnderSixCharactersException -> LoginErrorStateResources(
                     R.string.auth_invalid_password
                 )
                 is AuthException.WrongCredentialsException -> LoginErrorStateResources(

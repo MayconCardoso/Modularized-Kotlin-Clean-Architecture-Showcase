@@ -2,6 +2,20 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+android {
+    def props = new Properties()
+    file("../securityKeys.properties").withInputStream { props.load(it) }
+
+    buildTypes {
+        debug{
+            buildConfigField "String", "ApiKey", props.getProperty("apiKey")
+        }
+        release {
+            buildConfigField "String", "ApiKey", props.getProperty("apiKey")
+        }
+    }
+}
+
 dependencies {
     implementation project(path: submodulesPlatform.domain)
     implementation project(path: submodulesLibraries.networking)
@@ -14,4 +28,6 @@ dependencies {
     implementation globalDependencies.koin
 
     implementation globalDependencies.firebaseAuth
+    implementation globalDependencies.retrofit
+    implementation globalDependencies.retrofitGsonConverter
 }

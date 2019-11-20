@@ -16,6 +16,10 @@ jobs:
           command: echo $GOOGLE_SERVICES > app/google-services.json
 
       - run:
+          name: Store Security API Key
+          command: echo $SECURITY_API_KEY > securityKeys.properties
+
+      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
 

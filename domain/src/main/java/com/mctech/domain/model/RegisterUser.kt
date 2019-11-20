@@ -20,7 +20,7 @@ data class RegisterUser(
             throw AuthException.InvalidEmailFormatException
 
         if (!PasswordlValidator(password))
-            throw AuthException.PasswordUnderFiveCharactersException
+            throw AuthException.PasswordUnderSixCharactersException
 
         if (password != passwordConfirmation)
             throw AuthException.PasswordsDoNotMatchException

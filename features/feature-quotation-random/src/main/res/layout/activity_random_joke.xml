@@ -1,35 +1,92 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="12dp">
+    <data>
 
-    <TextView
+        <variable
+                name="quotation"
+                type="com.mctech.domain.model.Quotation" />
+
+        <variable
+                name="loading"
+                type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:textStyle="bold"
-            tools:text="2019-10-10" />
+            android:orientation="vertical"
+            android:padding="12dp">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="12dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:textStyle="bold"
-            tools:text="Poor Jeb Bush spent $50 million on his campaign, I spent almost nothing. He's bottom (and gone), I'm top (by a lot). That's what U.S. needs!" />
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{quotation.author}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:textStyle="bold"
+                app:gone="@{loading}"
+                app:layout_constraintBottom_toTopOf="@+id/tvDate"
+                tools:layout_editor_absoluteX="12dp"
+                tools:text="Maycon Cardoso"
+                tools:visibility="visible" />
+
+        <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@{quotation.date}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:textStyle="bold"
+                app:gone="@{loading}"
+                app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+                tools:layout_editor_absoluteX="12dp"
+                tools:text="2019-10-10"
+                tools:visibility="visible" />
+
+        <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{quotation.description}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textStyle="bold"
+                app:gone="@{loading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="12dp"
+                tools:text="Poor Jeb Bush spent $50 million on his campaign, I spent almost nothing. He's bottom (and gone), I'm top (by a lot). That's what U.S. needs!"
+                tools:visibility="visible" />
 
 
-    <Button
-            android:layout_marginTop="18dp"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/show_another_joke" />
+        <Button
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/show_another_joke"
+                android:onClick="onClickFetchQuotation"
+                app:gone="@{loading}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+                tools:visibility="visible" />
 
-</LinearLayout>
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:visible="@{loading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

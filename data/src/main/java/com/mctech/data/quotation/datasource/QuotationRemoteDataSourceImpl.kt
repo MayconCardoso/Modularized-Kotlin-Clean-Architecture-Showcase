@@ -14,8 +14,8 @@ class QuotationRemoteDataSourceImpl(private val api: QuotationAPI) :
             it.description,
             it.date,
             it.tags,
-            "",
-            ""
+            it.embedded.author[0].name,
+            it.embedded.source[0].url
         )
     }
 

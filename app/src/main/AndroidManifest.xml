@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.mctech.kotlinlearning">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.mctech.kotlinlearning">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-       <application
-        android:name=".App"
-        android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher_round"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="false"
-        android:theme="@style/KotlinLearningTheme"
-        tools:ignore="GoogleAppIndexingWarning"/>
+    <application
+            android:name=".App"
+            android:allowBackup="false"
+            android:icon="@mipmap/ic_launcher_round"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="false"
+            android:theme="@style/KotlinLearningTheme"
+            tools:ignore="GoogleAppIndexingWarning" />
 
 </manifest>
