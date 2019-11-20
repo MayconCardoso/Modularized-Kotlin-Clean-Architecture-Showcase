@@ -30,4 +30,8 @@ dependencies {
     implementation globalDependencies.firebaseAuth
     implementation globalDependencies.retrofit
     implementation globalDependencies.retrofitGsonConverter
+
+
+    testImplementation globalTestDependencies.jUnit
+    testImplementation globalTestDependencies.assertJ
 }
